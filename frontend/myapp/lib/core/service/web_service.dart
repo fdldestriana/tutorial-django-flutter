@@ -9,7 +9,7 @@ class WebService {
 
     if (response.statusCode == 200) {
       Iterable body = jsonDecode(response.body);
-      return body.map((e) => User.fromJson(e));
+      return body.map((e) => User.fromJson(e)).toList();
     } else {
       throw 'Unable to get the data';
     }
