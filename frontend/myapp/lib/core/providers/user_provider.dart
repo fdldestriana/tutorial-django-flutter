@@ -3,7 +3,7 @@ import 'package:myapp/core/models/users.dart';
 class UserProvider {
   final User? user;
 
-  UserProvider({this.user});
+  UserProvider({required this.user});
 
   int get id => user!.id as int;
 
