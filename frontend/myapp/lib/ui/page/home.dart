@@ -7,26 +7,28 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<UserListProvider>(context, listen: true);
+    final provider = Provider.of<UserListProvider>(context, listen: false);
+
     return Scaffold(
-      appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () {
-            provider.getData();
-          },
-        ),
-      ),
       body: FutureBuilder(
-        future: provider.getData(),
-        builder: (context, snapshot) => Center(
-          child: Column(
-            children: <Widget>[
-              Text(provider.listUser[0].name),
-              Text(provider.listUser[0].created)
-            ],
-          ),
-        ),
-      ),
+          future: provider.getData(),
+          builder: (context, snapshot) {
+            print(snapshot.connectionState);
+            if (snapshot.connectionState == ConnectionState.done &&
+                provider.listUser.isNotEmpty) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(provider.listUser[0].name),
+                    Text(provider.listUser[0].created)
+                  ],
+                ),
+              );
+            } else {
+              return const Center(child: CircularProgressIndicator());
+            }
+          }),
     );
   }
 }

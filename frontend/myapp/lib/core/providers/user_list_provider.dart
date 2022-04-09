@@ -9,7 +9,9 @@ class UserListProvider with ChangeNotifier {
 
   Future<void> getData() async {
     final results = await WebService().getData();
+    // print(results.toString());
     _listUser = results.map((e) => UserProvider(user: e)).toList();
+    // print(_listUser);
     notifyListeners();
   }
 }
