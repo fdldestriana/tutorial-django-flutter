@@ -1,4 +1,4 @@
-from django.urls import URLPattern, include, path
+from django.urls import URLPattern, path
 from product import views
 
 urlpatterns = [
