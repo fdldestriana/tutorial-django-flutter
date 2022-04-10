@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/core/providers/user_list_provider.dart';
+import 'package:myapp/core/providers/product_list_provider.dart';
 import 'package:myapp/ui/page/home.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => UserListProvider(),
+      create: (context) => ProductListProvider(),
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(

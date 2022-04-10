@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/core/providers/user_list_provider.dart';
+import 'package:myapp/core/providers/product_list_provider.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
@@ -7,21 +7,29 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<UserListProvider>(context, listen: false);
+    final provider = Provider.of<ProductListProvider>(context, listen: false);
 
     return Scaffold(
       body: FutureBuilder(
           future: provider.getData(),
           builder: (context, snapshot) {
-            print(snapshot.connectionState);
+            // print(snapshot.connectionState);
             if (snapshot.connectionState == ConnectionState.done &&
-                provider.listUser.isNotEmpty) {
+                provider.listProducts.isNotEmpty) {
               return Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(provider.listUser[0].name),
-                    Text(provider.listUser[0].created)
+                  children: [
+                    Container(
+                      child: Column(
+                        children: <Widget>[
+                          Text(provider.listProducts[0].name as String),
+                          Text(provider.listProducts[0].price as String),
+                          Image.network(
+                              provider.listProducts[0].thumbnail as String)
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               );
