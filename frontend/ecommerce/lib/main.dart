@@ -1,6 +1,7 @@
+import 'package:ecommerce/ui/page/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/core/providers/product_list_provider.dart';
-import 'package:ecommerce/ui/page/home.dart';
+// import 'package:ecommerce/ui/page/home_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -15,11 +16,14 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => ProductListProvider(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const Home(),
+        home: MainPage(
+          text: 'Fashion sale',
+        ),
       ),
     );
   }

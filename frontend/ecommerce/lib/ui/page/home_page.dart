@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:ecommerce/core/providers/product_list_provider.dart';
 import 'package:provider/provider.dart';
 
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<ProductListProvider>(context, listen: false);
+    final MediaQueryData queryData = MediaQuery.of(context);
+    double width = queryData.size.width;
+    double height = queryData.size.height;
 
     return Scaffold(
       body: FutureBuilder(
