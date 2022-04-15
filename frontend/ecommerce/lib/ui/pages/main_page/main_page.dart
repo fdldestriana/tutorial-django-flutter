@@ -1,6 +1,6 @@
 import 'package:ecommerce/size_config.dart';
 import 'package:ecommerce/ui/pages/main_page/body_main_page.dart';
-import 'package:ecommerce/ui/pages/main_page/bottom_navigation_bar_main_page.dart';
+import 'package:ecommerce/ui/components/bottom_navigation_bar_main_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {
@@ -14,7 +14,7 @@ class MainPage extends StatelessWidget {
     size.init(context);
     return Scaffold(
       body: BodyMainPage(size: size, text: text),
-      bottomNavigationBar: BottomNavigationBarMainPage(),
+      bottomNavigationBar: const BottomNavigationBarMainPage(),
     );
   }
 }
