@@ -9,9 +9,7 @@ class ProductListProvider with ChangeNotifier {
 
   Future<void> getData() async {
     final results = await WebService().getData();
-    print(results.toString());
     _listProducts = results.map((e) => ProductProvider(product: e)).toList();
-    print(_listProducts);
     notifyListeners();
   }
 }

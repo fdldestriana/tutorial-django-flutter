@@ -9,7 +9,6 @@ class WebService {
 
     if (response.statusCode == 200) {
       Iterable body = jsonDecode(response.body);
-      print(body.toString());
       return body.map((e) => Products.fromJson(e)).toList();
     } else {
       throw 'Unable to get the data';

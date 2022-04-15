@@ -8,9 +8,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<ProductListProvider>(context, listen: false);
-    final MediaQueryData queryData = MediaQuery.of(context);
-    double width = queryData.size.width;
-    double height = queryData.size.height;
 
     return Scaffold(
       body: FutureBuilder(
