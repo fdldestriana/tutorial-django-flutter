@@ -1,7 +1,7 @@
-import 'package:ecommerce/core/models/products.dart';
+import 'package:ecommerce/core/models/product.dart';
 
 class ProductProvider {
-  final Products? product;
+  final Product? product;
 
   ProductProvider({required this.product});
 
@@ -12,4 +12,12 @@ class ProductProvider {
   String? get price => product!.price;
 
   String? get thumbnail => product!.thumbnail;
+
+  String? get category => product!.category;
+
+  double? get stars => product!.stars;
+
+  bool? get tag => product!.tag;
+
+  bool? get isLove => product!.isLove;
 }
