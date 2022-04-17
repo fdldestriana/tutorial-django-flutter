@@ -29,9 +29,8 @@ class _BodyMainPageState extends State<BodyMainPage> {
 
   @override
   Widget build(BuildContext context) {
-    final ProductListProvider provider =
-        Provider.of<ProductListProvider>(context, listen: true);
-    List<ProductProvider> data = provider.listProducts;
+    List<ProductProvider> data =
+        Provider.of<ProductListProvider>(context, listen: false).listProducts;
 
     final SliverAppBar sliverAppBar = SliverAppBar(
       // set minimum height while user doesn't scrolling down
@@ -52,10 +51,9 @@ class _BodyMainPageState extends State<BodyMainPage> {
         ]),
       ),
     );
-    return FutureBuilder<dynamic>(builder: (context, snapshot) {
+    return FutureBuilder(builder: (context, snapshot) {
       Widget sliverList;
-      if (snapshot.connectionState == ConnectionState.done &&
-          provider.listProducts.isNotEmpty) {
+      if (data.isNotEmpty) {
         sliverList =
             SliverList(delegate: SliverChildBuilderDelegate(((context, index) {
           return ProductCart(productProvider: data[index]);
