@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../size_config.dart';
 
-class BodyMainPage extends StatefulWidget {
-  const BodyMainPage({
+// ignore: must_be_immutable
+class BodyMainPage extends StatelessWidget {
+  BodyMainPage({
     Key? key,
     required this.size,
     required this.text,
@@ -15,30 +16,23 @@ class BodyMainPage extends StatefulWidget {
 
   final SizeConfig size;
   final String? text;
-
-  @override
-  State<BodyMainPage> createState() => _BodyMainPageState();
-}
-
-class _BodyMainPageState extends State<BodyMainPage> {
-  @override
-  void didChangeDependencies() {
-    Provider.of<ProductListProvider>(context).getData();
-    super.didChangeDependencies();
-  }
+  bool productList = false;
 
   @override
   Widget build(BuildContext context) {
+    if (!productList) {
+      Provider.of<ProductListProvider>(context).getData();
+      productList = true;
+    }
     List<ProductProvider> data =
         Provider.of<ProductListProvider>(context, listen: false).listProducts;
 
     final SliverAppBar sliverAppBar = SliverAppBar(
       // set minimum height while user doesn't scrolling down
-      expandedHeight: widget.size.getProportionHeight(536),
-      pinned: true,
+      expandedHeight: size.getProportionHeight(536),
       flexibleSpace: FlexibleSpaceBar(
         title: Text(
-          widget.text as String,
+          text as String,
         ),
         background: Stack(children: [
           Image.asset(
@@ -47,7 +41,7 @@ class _BodyMainPageState extends State<BodyMainPage> {
             height: double.infinity,
             fit: BoxFit.cover,
           ),
-          CheckButton(size: widget.size)
+          CheckButton(size: size)
         ]),
       ),
     );
@@ -56,14 +50,18 @@ class _BodyMainPageState extends State<BodyMainPage> {
       if (data.isNotEmpty) {
         sliverList =
             SliverList(delegate: SliverChildBuilderDelegate(((context, index) {
-          return ProductCart(productProvider: data[index]);
+          return GridView.count(
+            crossAxisCount: 2,
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            children: data.map((e) => ProductCart(productProvider: e)).toList(),
+          );
         })));
       } else {
         sliverList = const SliverToBoxAdapter(
           child: CircularProgressIndicator(),
         );
       }
-
       return CustomScrollView(slivers: [sliverAppBar, sliverList]);
     });
   }

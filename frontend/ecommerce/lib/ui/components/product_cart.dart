@@ -12,21 +12,19 @@ class ProductCart extends StatelessWidget {
   Widget build(BuildContext context) {
     size.init(context);
     return Container(
-      width: size.getProportionWidth(150),
+      width: size.getProportionWidth(164),
       height: size.getProportionHeight(260),
       decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10))),
-      child: Column(
-        children: <Widget>[
-          Stack(
-            children: [Image.network(productProvider.thumbnail as String)],
-          ),
-          // stars widget
+      child: Stack(
+        children: [
+          Image.network(productProvider.thumbnail as String),
           Text(productProvider.name as String),
           // Text(productProvider.category as String),
           Text(productProvider.price as String)
         ],
       ),
+      // stars widget
     );
   }
 }
