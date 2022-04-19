@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
-class BottomNavigationBarMainPage extends StatefulWidget {
-  const BottomNavigationBarMainPage({Key? key}) : super(key: key);
+class BottomNavigationBarCustom extends StatefulWidget {
+  const BottomNavigationBarCustom({Key? key}) : super(key: key);
 
   @override
-  State<BottomNavigationBarMainPage> createState() =>
-      _BottomNavigationBarMainPageState();
+  State<BottomNavigationBarCustom> createState() =>
+      _BottomNavigationBarCustomState();
 }
 
-class _BottomNavigationBarMainPageState
-    extends State<BottomNavigationBarMainPage> {
+class _BottomNavigationBarCustomState extends State<BottomNavigationBarCustom> {
   final List<String> bottomTab = [
     'assets/images/icons/bottom_navigation_bar/home',
     'assets/images/icons/bottom_navigation_bar/shop',

@@ -11,18 +11,11 @@ class CheckButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: size.getProportionWidth(160),
-        height: size.getProportionHeight(36),
-        margin: EdgeInsets.only(
-          left: size.getProportionWidth(10),
-          top: size.getProportionHeight(468),
-          right: size.getProportionWidth(206),
-        ),
+    return SizedBox(
+        width: size.getProportionWidth(110),
+        height: size.getProportionHeight(30),
         child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(const Color(0xFFDB3022)),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25))),

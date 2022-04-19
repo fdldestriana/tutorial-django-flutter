@@ -3,28 +3,26 @@ import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
 
 class ProductCart extends StatelessWidget {
-  ProductCart({Key? key, required this.productProvider}) : super(key: key);
+  const ProductCart({Key? key, required this.productProvider})
+      : super(key: key);
 
-  final SizeConfig size = SizeConfig();
   final ProductProvider productProvider;
 
   @override
   Widget build(BuildContext context) {
+    final SizeConfig size = SizeConfig();
     size.init(context);
-    return Container(
-      width: size.getProportionWidth(164),
-      height: size.getProportionHeight(260),
-      decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(10))),
-      child: Stack(
-        children: [
-          Image.network(productProvider.thumbnail as String),
-          Text(productProvider.name as String),
-          // Text(productProvider.category as String),
-          Text(productProvider.price as String)
-        ],
+    return InkWell(
+      child: ClipRRect(
+        borderRadius:
+            BorderRadius.all(Radius.circular(size.getProportionWidth(10))),
+        child: Image.network(
+          productProvider.thumbnail as String,
+          width: size.getProportionWidth(162),
+          height: size.getProportionHeight(281),
+          fit: BoxFit.cover,
+        ),
       ),
-      // stars widget
     );
   }
 }
