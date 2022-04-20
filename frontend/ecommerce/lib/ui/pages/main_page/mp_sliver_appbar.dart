@@ -16,19 +16,20 @@ class MPSliverAppBar extends StatelessWidget {
         title: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [const Text('Fashion\nsale'), CheckButton(size: size)],
+          children: [
+            // const Text('Fashion\nsale'),
+            CheckButton(size: size)
+          ],
         ),
         // used to defining the padding for title, because if the
         // title is not centered, the default would be
         // EdgeInsetsDirectional.only(start: 72, bottom: 16) or start: 0
         titlePadding: EdgeInsetsDirectional.only(
-            // top: size.getProportionHeight(310),
-            // end: size.getProportionWidth(171),
             start: size.getProportionWidth(15),
             bottom: size.getProportionHeight(32)),
         background: Stack(children: [
           Image.asset(
-            'assets/images/big_banner.png',
+            'assets/images/iffah_sale.jpeg',
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,

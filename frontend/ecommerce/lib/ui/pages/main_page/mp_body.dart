@@ -37,8 +37,9 @@ class MPBody extends StatelessWidget {
           ),
           delegate: SliverChildBuilderDelegate(((context, index) {
             return Padding(
-                padding: EdgeInsets.all(size.getProportionWidth(16)),
-                child: ProductCart(productProvider: data[index]));
+              padding: EdgeInsets.all(size.getProportionHeight(5)),
+              child: ProductCart(productProvider: data[index]),
+            );
           }), childCount: data.length),
         );
       } else {
