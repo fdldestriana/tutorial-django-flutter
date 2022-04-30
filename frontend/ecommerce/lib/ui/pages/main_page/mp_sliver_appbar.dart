@@ -1,4 +1,4 @@
-import 'package:ecommerce/ui/pages/main_page/check_button.dart';
+import 'package:ecommerce/ui/pages/main_page/mp_check_button.dart';
 import 'package:flutter/material.dart';
 import '../../../size_config.dart';
 
