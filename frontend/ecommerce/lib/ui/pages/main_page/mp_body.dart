@@ -33,13 +33,9 @@ class MPBody extends StatelessWidget {
       if (data.isNotEmpty) {
         sliverList = SliverGrid(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-          ),
+              crossAxisCount: 2),
           delegate: SliverChildBuilderDelegate(((context, index) {
-            return Padding(
-              padding: EdgeInsets.all(size.getProportionHeight(5)),
-              child: ProductCart(productProvider: data[index]),
-            );
+            return ProductCart(productProvider: data[index]);
           }), childCount: data.length),
         );
       } else {
