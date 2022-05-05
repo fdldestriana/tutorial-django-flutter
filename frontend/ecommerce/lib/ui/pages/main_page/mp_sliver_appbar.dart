@@ -18,7 +18,7 @@ class MPSliverAppBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // const Text('Fashion\nsale'),
-            CheckButton(size: size)
+            MPCheckButton(size: size)
           ],
         ),
         // used to defining the padding for title, because if the

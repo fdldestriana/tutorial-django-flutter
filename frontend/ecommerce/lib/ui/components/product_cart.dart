@@ -21,9 +21,8 @@ class ProductCart extends StatelessWidget {
           Stack(alignment: const Alignment(1.3, 1.4), children: [
             InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const ProductDetailPage();
-                }));
+                Navigator.of(context).pushNamed(ProductDetailPage.routeName,
+                    arguments: productProvider.id);
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.all(
@@ -36,7 +35,7 @@ class ProductCart extends StatelessWidget {
                 ),
               ),
             ),
-            FavouriteButton()
+            const FavouriteButton()
           ]),
           SizedBox(height: size.getProportionHeight(5)),
           Text(

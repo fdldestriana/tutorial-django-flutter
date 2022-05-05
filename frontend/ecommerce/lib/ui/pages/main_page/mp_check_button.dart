@@ -1,8 +1,8 @@
 import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
 
-class CheckButton extends StatelessWidget {
-  const CheckButton({
+class MPCheckButton extends StatelessWidget {
+  const MPCheckButton({
     Key? key,
     required this.size,
   }) : super(key: key);

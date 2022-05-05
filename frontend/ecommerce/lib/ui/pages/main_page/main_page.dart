@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
-
+  static const String routeName = '/main-page';
   @override
   Widget build(BuildContext context) {
     SizeConfig size = SizeConfig();

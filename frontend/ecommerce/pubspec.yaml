@@ -63,6 +63,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/icons/is_love/
+    - assets/images/icons/app_bar/
     - assets/images/icons/bottom_navigation_bar/
     
   fonts:
