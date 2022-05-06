@@ -3,7 +3,6 @@ import 'package:ecommerce/size_config.dart';
 import 'package:ecommerce/ui/components/options_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../components/favourite_button.dart';
 
 class ProductDetailPage extends StatelessWidget {
@@ -52,10 +51,16 @@ class ProductDetailPage extends StatelessWidget {
             SizedBox(height: size.getProportionHeight(12)),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                OtionsButton(),
-                OtionsButton(),
-                const FavouriteButton()
+              children: const <Widget>[
+                OtionsButton(
+                  text: 'Size',
+                  index: 0,
+                ),
+                OtionsButton(
+                  text: 'Color',
+                  index: 1,
+                ),
+                FavouriteButton()
               ],
             ),
             SizedBox(

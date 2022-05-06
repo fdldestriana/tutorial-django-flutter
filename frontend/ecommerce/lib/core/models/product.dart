@@ -1,3 +1,8 @@
+import 'package:flutter/cupertino.dart';
+
+import './size.dart';
+import './color.dart';
+
 class Product {
   int? id;
   String? name;
@@ -7,6 +12,8 @@ class Product {
   double? stars;
   bool? tag;
   bool? isLove;
+  Size size;
+  Color color;
 
   Product(
       {this.id,
@@ -16,7 +23,9 @@ class Product {
       this.category,
       this.stars,
       this.tag,
-      this.isLove});
+      this.isLove,
+      this.size = Size.xl,
+      this.color = Color.black});
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
