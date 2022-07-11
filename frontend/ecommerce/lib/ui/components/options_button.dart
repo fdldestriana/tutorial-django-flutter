@@ -9,19 +9,19 @@ class OtionsButton extends StatelessWidget {
   final List<Color> colors = const [Color(0xFFF01F0E), Color(0xFF9B9B9B)];
   final int index;
 
-  Widget _buildSheet() => Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const SizedBox(
-            height: 36,
-          ),
-          Text('Select $text'),
-          GridView.count(
-            crossAxisCount: 3,
-            children: [],
-          )
-        ],
-      );
+  // Widget _buildSheet() => Column(
+  //       mainAxisSize: MainAxisSize.min,
+  //       children: [
+  //         const SizedBox(
+  //           height: 36,
+  //         ),
+  //         Text('Select $text'),
+  //         GridView.count(
+  //           crossAxisCount: 3,
+  //           children: const [],
+  //         )
+  //       ],
+  //     );
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class OtionsButton extends StatelessWidget {
             isScrollControlled: true,
             enableDrag: false,
             context: context,
-            builder: (context) => _buildSheet()),
+            builder: (context) => Container()),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -52,7 +52,7 @@ class OtionsButton extends StatelessWidget {
               text,
               style: const TextStyle(color: Color(0xFF222222)),
             ),
-            SizedBox(width: size.getProportionWidth(67)),
+            SizedBox(width: size.getProportionWidth(47)),
             Image.asset('assets/images/icons/dropdown/dropdown.png')
           ],
         ),

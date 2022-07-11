@@ -52,15 +52,19 @@ class ProductDetailPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: const <Widget>[
-                OtionsButton(
-                  text: 'Size',
-                  index: 0,
+                Flexible(
+                  child: OtionsButton(
+                    text: 'Size',
+                    index: 0,
+                  ),
                 ),
-                OtionsButton(
-                  text: 'Color',
-                  index: 1,
+                Flexible(
+                  child: OtionsButton(
+                    text: 'Color',
+                    index: 1,
+                  ),
                 ),
-                FavouriteButton()
+                Flexible(child: FavouriteButton())
               ],
             ),
             SizedBox(
