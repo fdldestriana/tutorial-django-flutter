@@ -9,19 +9,45 @@ class OtionsButton extends StatelessWidget {
   final List<Color> colors = const [Color(0xFFF01F0E), Color(0xFF9B9B9B)];
   final int index;
 
-  // Widget _buildSheet() => Column(
-  //       mainAxisSize: MainAxisSize.min,
-  //       children: [
-  //         const SizedBox(
-  //           height: 36,
-  //         ),
-  //         Text('Select $text'),
-  //         GridView.count(
-  //           crossAxisCount: 3,
-  //           children: const [],
-  //         )
-  //       ],
-  //     );
+  Widget _buildSheet(BuildContext ctx) {
+    final size = SizeConfig();
+    return Container(
+      width: size.getProportionWidth(375),
+      height: size.getProportionHeight(368),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(34)),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: size.getProportionHeight(14),
+          ),
+          Image.asset(
+            "assets/images/icons/bar_select_size/bar_select_size.png",
+            width: size.getProportionWidth(60),
+            height: size.getProportionHeight(6),
+          ),
+          SizedBox(
+            height: size.getProportionHeight(16),
+          ),
+          const Text('Select size'),
+          // GridView.count(
+          //   crossAxisCount: 3,
+          //   crossAxisSpacing: 22,
+          //   mainAxisSpacing: 16,
+          //   children: List.generate(
+          //       5,
+          //       (index) => Container(
+          //             width: size.getProportionWidth(100),
+          //             height: size.getProportionHeight(40),
+          //             decoration: BoxDecoration(
+          //                 border: Border.all(color: Colors.grey),
+          //                 borderRadius: BorderRadius.circular(8)),
+          //           )),
+          // ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +70,7 @@ class OtionsButton extends StatelessWidget {
             isScrollControlled: true,
             enableDrag: false,
             context: context,
-            builder: (context) => Container()),
+            builder: (context) => _buildSheet(context)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

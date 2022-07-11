@@ -1,1 +1,1 @@
-enum Size { xs, s, m, l, xl }
+enum Size { XS, S, M, L, XL }

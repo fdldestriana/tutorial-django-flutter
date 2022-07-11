@@ -18,7 +18,7 @@ class ProductCart extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Stack(alignment: const AlignmentDirectional(1.0, 1.0), children: [
+          Stack(alignment: const Alignment(1.3, 1.4), children: [
             InkWell(
               onTap: () {
                 Navigator.of(context).pushNamed(ProductDetailPage.routeName,
@@ -35,16 +35,16 @@ class ProductCart extends StatelessWidget {
                 ),
               ),
             ),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: const <Widget>[Flexible(child: FavouriteButton())])
+            const FavouriteButton()
           ]),
           SizedBox(height: size.getProportionHeight(5)),
           Text(
             productProvider.name as String,
             style: const TextStyle(fontSize: 11, color: Color(0xFF9B9B9B)),
           ),
-          SizedBox(height: size.getProportionHeight(3)),
+          SizedBox(
+            height: size.getProportionHeight(3),
+          ),
           Text(
             '${productProvider.price}\$',
             style: const TextStyle(fontSize: 14, color: Color(0xFF222222)),

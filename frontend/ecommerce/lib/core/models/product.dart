@@ -22,7 +22,7 @@ class Product {
       this.stars,
       this.tag,
       this.isLove,
-      this.size = Size.xl,
+      this.size = Size.XL,
       this.color = Color.black});
 
   factory Product.fromJson(Map<String, dynamic> json) {
