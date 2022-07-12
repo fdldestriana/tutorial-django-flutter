@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../size_config.dart';
+import 'package:ecommerce/core/models/size.dart';
 
 class OtionsButton extends StatelessWidget {
   const OtionsButton({Key? key, required this.text, required this.index})
@@ -14,7 +15,9 @@ class OtionsButton extends StatelessWidget {
     return Container(
       width: size.getProportionWidth(375),
       height: size.getProportionHeight(368),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(34)),
+      decoration: BoxDecoration(
+          color: const Color(0XFFF9F9F9),
+          borderRadius: BorderRadius.circular(34)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -30,20 +33,80 @@ class OtionsButton extends StatelessWidget {
             height: size.getProportionHeight(16),
           ),
           const Text('Select size'),
-          // GridView.count(
-          //   crossAxisCount: 3,
-          //   crossAxisSpacing: 22,
-          //   mainAxisSpacing: 16,
-          //   children: List.generate(
-          //       5,
-          //       (index) => Container(
-          //             width: size.getProportionWidth(100),
-          //             height: size.getProportionHeight(40),
-          //             decoration: BoxDecoration(
-          //                 border: Border.all(color: Colors.grey),
-          //                 borderRadius: BorderRadius.circular(8)),
-          //           )),
-          // ),
+          SizedBox(
+            height: size.getProportionHeight(22),
+          ),
+          GridView.builder(
+            shrinkWrap: true,
+            padding: EdgeInsets.all(size.getProportionWidth(16)),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                childAspectRatio: 2.5,
+                mainAxisSpacing: size.getProportionHeight(16),
+                crossAxisSpacing: size.getProportionWidth(22),
+                crossAxisCount: 3),
+            itemCount: Size.values.length,
+            itemBuilder: (BuildContext context, int index) {
+              List<String?> sizeValue = [];
+              for (var value in Size.values) {
+                sizeValue.add(value.toString().split('.').elementAt(1));
+              }
+              return Center(
+                child: Container(
+                  width: size.getProportionWidth(100),
+                  height: size.getProportionHeight(40),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: const Color(0xFF9B9B9B)),
+                      borderRadius: const BorderRadius.all(Radius.circular(8))),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(primary: Colors.white),
+                      onPressed: () {},
+                      child: Text(
+                        sizeValue[index]!,
+                        style: const TextStyle(color: Color(0XFF222222)),
+                      )),
+                ),
+              );
+            },
+          ),
+          Container(
+            width: size.getProportionWidth(375),
+            height: size.getProportionHeight(48),
+            decoration: BoxDecoration(
+              border: Border.all(color: const Color(0xFF9B9B9B)),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: size.getProportionWidth(15),
+                ),
+                const Text("Select size"),
+                SizedBox(
+                  width: size.getProportionWidth(268),
+                ),
+                Image.asset('assets/images/icons/dropdown/rightdown.png'),
+                SizedBox(
+                  width: size.getProportionWidth(10),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: size.getProportionHeight(28),
+          ),
+          SizedBox(
+            width: size.getProportionWidth(343),
+            height: size.getProportionHeight(48),
+            child: ElevatedButton(
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25))),
+              ),
+              onPressed: () {},
+              child: const Text("Add to cart"),
+            ),
+          )
         ],
       ),
     );
