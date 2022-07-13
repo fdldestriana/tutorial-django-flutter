@@ -66,6 +66,7 @@ flutter:
     - assets/images/icons/is_love/
     - assets/images/icons/app_bar/
     - assets/images/icons/dropdown/
+    - assets/images/icons/bottom_modal_scroll/
     - assets/images/icons/bottom_navigation_bar/
     - assets/images/icons/bar_select_size/
     

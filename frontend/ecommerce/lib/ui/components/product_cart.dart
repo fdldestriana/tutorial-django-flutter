@@ -14,41 +14,47 @@ class ProductCart extends StatelessWidget {
   Widget build(BuildContext context) {
     final SizeConfig size = SizeConfig();
     size.init(context);
-    return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(alignment: const Alignment(1.3, 1.4), children: [
-            InkWell(
-              onTap: () {
-                Navigator.of(context).pushNamed(ProductDetailPage.routeName,
-                    arguments: productProvider.id);
-              },
-              child: ClipRRect(
-                borderRadius: BorderRadius.all(
-                    Radius.circular(size.getProportionWidth(10))),
-                child: Image.network(
-                  productProvider.thumbnail as String,
-                  width: size.getProportionWidth(162),
-                  height: size.getProportionHeight(184),
-                  fit: BoxFit.cover,
+    return Center(
+      child: SizedBox(
+        width: size.getProportionWidth(164),
+        height: size.getProportionHeight(260),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Stack(alignment: const Alignment(1.3, 1.4), children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed(ProductDetailPage.routeName,
+                        arguments: productProvider.id);
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.all(
+                        Radius.circular(size.getProportionWidth(10))),
+                    child: Image.network(
+                      productProvider.thumbnail as String,
+                      width: size.getProportionWidth(162),
+                      height: size.getProportionHeight(184),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
+                const UnconstrainedBox(child: FavouriteButton())
+              ]),
+              SizedBox(height: size.getProportionHeight(5)),
+              Text(
+                productProvider.name as String,
+                style: const TextStyle(fontSize: 11, color: Color(0xFF9B9B9B)),
               ),
-            ),
-            const FavouriteButton()
-          ]),
-          SizedBox(height: size.getProportionHeight(5)),
-          Text(
-            productProvider.name as String,
-            style: const TextStyle(fontSize: 11, color: Color(0xFF9B9B9B)),
-          ),
-          SizedBox(
-            height: size.getProportionHeight(3),
-          ),
-          Text(
-            '${productProvider.price}\$',
-            style: const TextStyle(fontSize: 14, color: Color(0xFF222222)),
-          ),
-        ]);
+              SizedBox(
+                height: size.getProportionHeight(3),
+              ),
+              Text(
+                '${productProvider.price}\$',
+                style: const TextStyle(fontSize: 14, color: Color(0xFF222222)),
+              ),
+            ]),
+      ),
+    );
   }
 }

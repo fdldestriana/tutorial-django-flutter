@@ -33,16 +33,17 @@ class MPBody extends StatelessWidget {
       if (data.isNotEmpty) {
         sliverList = SliverGrid(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              mainAxisExtent: 260, crossAxisCount: 2),
+              mainAxisSpacing: 24,
+              crossAxisSpacing: 16,
+              childAspectRatio: 1.75 / 2,
+              crossAxisCount: 2),
           delegate: SliverChildBuilderDelegate(((context, index) {
-            return Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16),
-                child: ProductCart(productProvider: data[index]));
+            return ProductCart(productProvider: data[index]);
           }), childCount: data.length),
         );
       } else {
         sliverList = const SliverToBoxAdapter(
-          child: CircularProgressIndicator(),
+          child: Text("There are no data to be displayed"),
         );
       }
       return CustomScrollView(slivers: [sliverAppBar, sliverList]);

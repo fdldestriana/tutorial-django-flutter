@@ -14,7 +14,7 @@ class OtionsButton extends StatelessWidget {
     final size = SizeConfig();
     return Container(
       width: size.getProportionWidth(375),
-      height: size.getProportionHeight(368),
+      height: size.getProportionHeight(402),
       decoration: BoxDecoration(
           color: const Color(0XFFF9F9F9),
           borderRadius: BorderRadius.circular(34)),
@@ -80,13 +80,13 @@ class OtionsButton extends StatelessWidget {
                 SizedBox(
                   width: size.getProportionWidth(15),
                 ),
-                const Text("Select size"),
+                const Text("Size info"),
                 SizedBox(
                   width: size.getProportionWidth(268),
                 ),
                 Image.asset('assets/images/icons/dropdown/rightdown.png'),
                 SizedBox(
-                  width: size.getProportionWidth(10),
+                  width: size.getProportionWidth(7.5),
                 ),
               ],
             ),
@@ -106,6 +106,12 @@ class OtionsButton extends StatelessWidget {
               onPressed: () {},
               child: const Text("Add to cart"),
             ),
+          ),
+          SizedBox(
+            width: size.getProportionWidth(375),
+            height: size.getProportionHeight(34),
+            child: Image.asset(
+                'assets/images/icons/bottom_modal_scroll/modal_scroll.png'),
           )
         ],
       ),
@@ -131,7 +137,7 @@ class OtionsButton extends StatelessWidget {
                 borderRadius: BorderRadius.vertical(
                     top: Radius.circular(size.getProportionWidth(34)))),
             isScrollControlled: true,
-            enableDrag: false,
+            enableDrag: true,
             context: context,
             builder: (context) => _buildSheet(context)),
         child: Row(
@@ -141,7 +147,7 @@ class OtionsButton extends StatelessWidget {
               text,
               style: const TextStyle(color: Color(0xFF222222)),
             ),
-            SizedBox(width: size.getProportionWidth(47)),
+            SizedBox(width: size.getProportionWidth(38)),
             Image.asset('assets/images/icons/dropdown/dropdown.png')
           ],
         ),
