@@ -14,8 +14,9 @@ class ProductDetailPage extends StatelessWidget {
     final SizeConfig size = SizeConfig();
     size.init(context);
     final productId = ModalRoute.of(context)!.settings.arguments as int;
-    final products = Provider.of<ProductListProvider>(context).listProducts;
-    final product = products.firstWhere((product) => product.id == productId);
+    final product = Provider.of<ProductListProvider>(context)
+        .listProducts
+        .firstWhere((product) => product.id == productId);
 
     return Scaffold(
         appBar: AppBar(
@@ -66,7 +67,7 @@ class ProductDetailPage extends StatelessWidget {
                 ),
                 Flexible(
                     child: FavouriteButton(
-                  productProvider: products[0],
+                  productProvider: product,
                 ))
               ],
             ),

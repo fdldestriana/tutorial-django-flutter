@@ -1,31 +1,21 @@
+import 'package:ecommerce/core/providers/whishlist_list_provider.dart';
+import 'package:flutter/material.dart';
+
 import 'package:ecommerce/core/providers/product_list_provider.dart';
 import 'package:ecommerce/core/providers/product_provider.dart';
 import 'package:ecommerce/ui/components/product_cart.dart';
-import 'package:ecommerce/ui/pages/main_page/mp_sliver_appbar.dart';
-import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../size_config.dart';
 
-class MPBody extends StatelessWidget {
-  MPBody({
+class FavoritesPage extends StatelessWidget {
+  const FavoritesPage({
     Key? key,
-    required this.size,
   }) : super(key: key);
-
-  final SizeConfig size;
-  bool productList = false;
+  static const String routeName = '/favorites-page';
 
   @override
   Widget build(BuildContext context) {
-    if (!productList) {
-      Provider.of<ProductListProvider>(context).getData();
-      productList = true;
-    }
-
     List<ProductProvider> data =
-        Provider.of<ProductListProvider>(context, listen: true).listProducts;
-
-    const MPSliverAppBar sliverAppBar = MPSliverAppBar();
+        Provider.of<WishlistListProvider>(context).wishlistList;
 
     return FutureBuilder(builder: (context, snapshot) {
       Widget sliverList;
@@ -49,7 +39,7 @@ class MPBody extends StatelessWidget {
           child: Center(child: Text("There are no data to be displayed")),
         );
       }
-      return CustomScrollView(slivers: [sliverAppBar, sliverList]);
+      return CustomScrollView(slivers: [sliverList]);
     });
   }
 }

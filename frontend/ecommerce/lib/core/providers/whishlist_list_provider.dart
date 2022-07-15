@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/product.dart';
 
 class WishlistListProvider with ChangeNotifier {
-  List<ProductProvider> _wishlistList = [];
+  final List<ProductProvider> _wishlistList = [];
 
   List<ProductProvider> get wishlistList => _wishlistList;
 
@@ -13,7 +13,7 @@ class WishlistListProvider with ChangeNotifier {
   }
 
   void removeFromWishlist(Product product) {
-    _wishlistList.remove(product);
+    _wishlistList.remove(product.name);
     notifyListeners();
   }
 }

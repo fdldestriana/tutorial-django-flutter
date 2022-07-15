@@ -1,4 +1,5 @@
 import 'package:ecommerce/constant.dart';
+import 'package:ecommerce/ui/pages/favorites_page/favorites_page.dart';
 import 'package:ecommerce/ui/pages/main_page/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/core/providers/product_list_provider.dart';
@@ -39,7 +40,8 @@ class MyApp extends StatelessWidget {
         initialRoute: MainPage.routeName,
         routes: {
           MainPage.routeName: (context) => const MainPage(),
-          ProductDetailPage.routeName: (context) => const ProductDetailPage()
+          ProductDetailPage.routeName: (context) => const ProductDetailPage(),
+          FavoritesPage.routeName: (context) => FavoritesPage()
         },
       ),
     );
