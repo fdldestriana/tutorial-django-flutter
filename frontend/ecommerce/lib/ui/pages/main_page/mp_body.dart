@@ -24,7 +24,7 @@ class MPBody extends StatelessWidget {
     }
 
     List<ProductProvider> data =
-        Provider.of<ProductListProvider>(context, listen: false).listProducts;
+        Provider.of<ProductListProvider>(context, listen: true).listProducts;
 
     const MPSliverAppBar sliverAppBar = MPSliverAppBar();
 
@@ -38,12 +38,16 @@ class MPBody extends StatelessWidget {
               childAspectRatio: 1.75 / 2,
               crossAxisCount: 2),
           delegate: SliverChildBuilderDelegate(((context, index) {
-            return ProductCart(productProvider: data[index]);
+            return ProductCart(
+              productProvider: data[index],
+              widthValue: 164,
+              heightValue: 260,
+            );
           }), childCount: data.length),
         );
       } else {
         sliverList = const SliverToBoxAdapter(
-          child: Text("There are no data to be displayed"),
+          child: Center(child: Text("There are no data to be displayed")),
         );
       }
       return CustomScrollView(slivers: [sliverAppBar, sliverList]);

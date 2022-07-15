@@ -1,1 +1,1 @@
-enum Size { XS, S, M, L, XL }
+enum ProductSize { XS, S, M, L, XL }

@@ -10,8 +10,8 @@ class Product {
   double? stars;
   bool? tag;
   bool? isLove;
-  Size size;
-  Color color;
+  ProductSize? size;
+  ProductColor? color;
 
   Product(
       {this.id,
@@ -22,8 +22,8 @@ class Product {
       this.stars,
       this.tag,
       this.isLove,
-      this.size = Size.XL,
-      this.color = Color.black});
+      this.size,
+      this.color});
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(

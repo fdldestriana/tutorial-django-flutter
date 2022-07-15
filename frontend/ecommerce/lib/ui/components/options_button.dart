@@ -44,10 +44,10 @@ class OtionsButton extends StatelessWidget {
                 mainAxisSpacing: size.getProportionHeight(16),
                 crossAxisSpacing: size.getProportionWidth(22),
                 crossAxisCount: 3),
-            itemCount: Size.values.length,
+            itemCount: ProductSize.values.length,
             itemBuilder: (BuildContext context, int index) {
               List<String?> sizeValue = [];
-              for (var value in Size.values) {
+              for (var value in ProductSize.values) {
                 sizeValue.add(value.toString().split('.').elementAt(1));
               }
               return Center(

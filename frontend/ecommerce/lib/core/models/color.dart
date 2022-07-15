@@ -1,1 +1,1 @@
-enum Color { black, white, red, gray, peach, blue }
+enum ProductColor { black, white, red, gray, peach, blue }

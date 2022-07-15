@@ -14,9 +14,9 @@ class ProductDetailPage extends StatelessWidget {
     final SizeConfig size = SizeConfig();
     size.init(context);
     final productId = ModalRoute.of(context)!.settings.arguments as int;
-    final product = Provider.of<ProductListProvider>(context)
-        .listProducts
-        .firstWhere((product) => product.id == productId);
+    final products = Provider.of<ProductListProvider>(context).listProducts;
+    final product = products.firstWhere((product) => product.id == productId);
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color(0xFFFFFFFF),
@@ -51,20 +51,23 @@ class ProductDetailPage extends StatelessWidget {
             SizedBox(height: size.getProportionHeight(12)),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const <Widget>[
-                Flexible(
+              children: <Widget>[
+                const Flexible(
                   child: OtionsButton(
                     text: 'Size',
                     index: 0,
                   ),
                 ),
-                Flexible(
+                const Flexible(
                   child: OtionsButton(
                     text: 'Color',
                     index: 1,
                   ),
                 ),
-                Flexible(child: FavouriteButton())
+                Flexible(
+                    child: FavouriteButton(
+                  productProvider: products[0],
+                ))
               ],
             ),
             SizedBox(

@@ -4,11 +4,23 @@ import 'package:ecommerce/ui/components/favourite_button.dart';
 import 'package:ecommerce/ui/pages/product_detail_page/product_detail_page.dart';
 import 'package:flutter/material.dart';
 
+import '../../core/models/color.dart';
+
 class ProductCart extends StatelessWidget {
-  const ProductCart({Key? key, required this.productProvider})
+  const ProductCart(
+      {Key? key,
+      required this.productProvider,
+      required this.widthValue,
+      required this.heightValue,
+      this.color,
+      this.size})
       : super(key: key);
 
   final ProductProvider productProvider;
+  final double widthValue;
+  final double heightValue;
+  final ProductColor? color;
+  final Size? size;
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +28,8 @@ class ProductCart extends StatelessWidget {
     size.init(context);
     return Center(
       child: SizedBox(
-        width: size.getProportionWidth(164),
-        height: size.getProportionHeight(260),
+        width: size.getProportionWidth(widthValue),
+        height: size.getProportionHeight(heightValue),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +51,10 @@ class ProductCart extends StatelessWidget {
                     ),
                   ),
                 ),
-                const UnconstrainedBox(child: FavouriteButton())
+                UnconstrainedBox(
+                    child: FavouriteButton(
+                  productProvider: productProvider,
+                ))
               ]),
               SizedBox(height: size.getProportionHeight(5)),
               Text(

@@ -5,6 +5,7 @@ import 'package:ecommerce/core/providers/product_list_provider.dart';
 // import 'package:ecommerce/ui/page/home_page.dart';
 import 'package:provider/provider.dart';
 import 'constant.dart';
+import 'core/providers/whishlist_list_provider.dart';
 import 'ui/pages/product_detail_page/product_detail_page.dart';
 
 void main() {
@@ -16,8 +17,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ProductListProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ProductListProvider>(
+          create: ((context) => ProductListProvider()),
+        ),
+        ChangeNotifierProvider<WishlistListProvider>(
+          create: ((context) => WishlistListProvider()),
+        )
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
