@@ -20,8 +20,10 @@ class _FavouriteButtonState extends State<FavouriteButton> {
   Widget build(BuildContext context) {
     List<ProductProvider> wishlist =
         Provider.of<WishlistListProvider>(context).wishlistList;
+
     SizeConfig size = SizeConfig();
     size.init(context);
+
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
             fixedSize:
@@ -29,13 +31,20 @@ class _FavouriteButtonState extends State<FavouriteButton> {
             primary: const Color(0xFFFFFFFF),
             shape: const CircleBorder()),
         onPressed: () {
-          wishlist.add(widget.productProvider);
-          print("wishlist: ${wishlist.length}");
           setState(() {
             isLove = !isLove;
           });
+
+          switch (isLove) {
+            case true:
+              wishlist.add(widget.productProvider);
+              break;
+            case false:
+              wishlist.remove(widget.productProvider);
+              break;
+          }
         },
-        child: (isLove)
+        child: (wishlist.contains(widget.productProvider))
             ? const ImageIcon(
                 AssetImage(
                     'assets/images/icons/is_love/favorite_border_activated.png'),

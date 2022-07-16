@@ -1,4 +1,7 @@
+import 'package:ecommerce/ui/pages/main_page/main_page.dart';
 import 'package:flutter/material.dart';
+
+import '../pages/favorites_page/favorites_page.dart';
 
 class BottomNavigationBarCustom extends StatefulWidget {
   const BottomNavigationBarCustom({Key? key}) : super(key: key);
@@ -21,7 +24,24 @@ class _BottomNavigationBarCustomState extends State<BottomNavigationBarCustom> {
 
   void _changeSelectedNavBar(int index) {
     _selectedNavbar = index;
-
+    switch (index) {
+      case 0:
+        Navigator.of(context).pushNamed(MainPage.routeName);
+        break;
+      // case 1:
+      //   Navigator.of(context).pushNamed(MainPage.routeName);
+      //   break;
+      // case 2:
+      //   Navigator.of(context).pushNamed(MainPage.routeName);
+      //   break;
+      case 3:
+        Navigator.of(context).pushNamed(FavoritesPage.routeName);
+        break;
+      // case 4:
+      //   Navigator.of(context).pushNamed(MainPage.routeName);
+      //   break;
+      default:
+    }
     setState(() {});
   }
 

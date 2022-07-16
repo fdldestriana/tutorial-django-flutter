@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         routes: {
           MainPage.routeName: (context) => const MainPage(),
           ProductDetailPage.routeName: (context) => const ProductDetailPage(),
-          FavoritesPage.routeName: (context) => FavoritesPage()
+          FavoritesPage.routeName: (context) => const FavoritesPage()
         },
       ),
     );
