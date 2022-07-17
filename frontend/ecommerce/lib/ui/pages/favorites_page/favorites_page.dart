@@ -19,7 +19,7 @@ class FavoritesPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Favorotes Page"),
+        title: const Text("Favorites Page"),
       ),
       body: FutureBuilder(builder: (context, snapshot) {
         Widget sliverList;

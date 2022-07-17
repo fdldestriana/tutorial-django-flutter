@@ -1,11 +1,14 @@
 import 'package:ecommerce/core/providers/product_list_provider.dart';
 import 'package:ecommerce/core/providers/product_provider.dart';
+
 import 'package:ecommerce/ui/components/product_cart.dart';
 import 'package:ecommerce/ui/pages/main_page/mp_sliver_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../../../size_config.dart';
 
+// ignore: must_be_immutable
 class MPBody extends StatelessWidget {
   MPBody({
     Key? key,
@@ -23,7 +26,7 @@ class MPBody extends StatelessWidget {
     }
 
     List<ProductProvider> data =
-        Provider.of<ProductListProvider>(context, listen: true).listProducts;
+        Provider.of<ProductListProvider>(context).listProducts;
 
     const MPSliverAppBar sliverAppBar = MPSliverAppBar();
 

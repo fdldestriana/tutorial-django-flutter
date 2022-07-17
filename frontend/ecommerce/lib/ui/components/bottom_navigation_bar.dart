@@ -23,10 +23,10 @@ class _BottomNavigationBarCustomState extends State<BottomNavigationBarCustom> {
   int _selectedNavbar = 0;
 
   void _changeSelectedNavBar(int index) {
-    _selectedNavbar = index;
-    switch (index) {
+    setState(() => _selectedNavbar = index);
+    switch (_selectedNavbar) {
       case 0:
-        Navigator.of(context).pushNamed(MainPage.routeName);
+        Navigator.of(context).pushReplacementNamed(MainPage.routeName);
         break;
       // case 1:
       //   Navigator.of(context).pushNamed(MainPage.routeName);
@@ -35,14 +35,14 @@ class _BottomNavigationBarCustomState extends State<BottomNavigationBarCustom> {
       //   Navigator.of(context).pushNamed(MainPage.routeName);
       //   break;
       case 3:
-        Navigator.of(context).pushNamed(FavoritesPage.routeName);
+        Navigator.of(context).pushReplacementNamed(FavoritesPage.routeName);
         break;
       // case 4:
       //   Navigator.of(context).pushNamed(MainPage.routeName);
       //   break;
       default:
+        0;
     }
-    setState(() {});
   }
 
   // using suffix _inactive.png and activated.png is because the selected

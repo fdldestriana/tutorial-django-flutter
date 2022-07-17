@@ -26,6 +26,7 @@ class ProductCart extends StatelessWidget {
   Widget build(BuildContext context) {
     final SizeConfig size = SizeConfig();
     size.init(context);
+
     return Center(
       child: SizedBox(
         width: size.getProportionWidth(widthValue),
@@ -37,7 +38,8 @@ class ProductCart extends StatelessWidget {
               Stack(alignment: const Alignment(1.3, 1.4), children: [
                 InkWell(
                   onTap: () {
-                    Navigator.of(context).pushNamed(ProductDetailPage.routeName,
+                    Navigator.of(context).pushReplacementNamed(
+                        ProductDetailPage.routeName,
                         arguments: productProvider.id);
                   },
                   child: ClipRRect(

@@ -1,6 +1,6 @@
 import 'package:ecommerce/core/providers/product_provider.dart';
 import 'package:flutter/material.dart';
-import '../models/product.dart';
+// import '../models/product.dart';
 
 class WishlistListProvider with ChangeNotifier {
   final List<ProductProvider> _wishlistList = [];
@@ -12,8 +12,8 @@ class WishlistListProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void removeFromWishlist(Product product) {
-    _wishlistList.remove(product.name);
-    notifyListeners();
-  }
+  // void removeFromWishlist(Product product) {
+  //   _wishlistList.remove(product.name);
+  //   notifyListeners();
+  // }
 }
