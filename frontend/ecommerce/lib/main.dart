@@ -1,6 +1,9 @@
 import 'package:ecommerce/constant.dart';
+import 'package:ecommerce/ui/pages/bag_page/bag_page.dart';
 import 'package:ecommerce/ui/pages/favorites_page/favorites_page.dart';
 import 'package:ecommerce/ui/pages/main_page/main_page.dart';
+import 'package:ecommerce/ui/pages/profile_page/profile_page.dart';
+import 'package:ecommerce/ui/pages/shop_page/shop_page.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/core/providers/product_list_provider.dart';
 // import 'package:ecommerce/ui/page/home_page.dart';
@@ -39,9 +42,12 @@ class MyApp extends StatelessWidget {
         home: const MainPage(),
         initialRoute: MainPage.routeName,
         routes: {
+          BagPage.routeName: (context) => const BagPage(),
+          FavoritesPage.routeName: (context) => const FavoritesPage(),
           MainPage.routeName: (context) => const MainPage(),
           ProductDetailPage.routeName: (context) => const ProductDetailPage(),
-          FavoritesPage.routeName: (context) => const FavoritesPage()
+          ProfilePage.routeName: (context) => const ProfilePage(),
+          ShopPage.routeName: ((context) => const ShopPage())
         },
       ),
     );

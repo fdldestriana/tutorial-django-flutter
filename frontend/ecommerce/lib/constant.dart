@@ -17,3 +17,12 @@ class MainColor {
   // MaterialColor primeColor = MaterialColor(0xFFDB3022, color);
 // MaterialColor accentColor = MaterialColor(0xFF337C36, MainColor.color);
 }
+
+// This list is gonna use in BottomNavigationBarCustom widget
+final List<String> bottomTab = [
+  'assets/images/icons/bottom_navigation_bar/home',
+  'assets/images/icons/bottom_navigation_bar/shop',
+  'assets/images/icons/bottom_navigation_bar/bag',
+  'assets/images/icons/bottom_navigation_bar/favorites',
+  'assets/images/icons/bottom_navigation_bar/profile'
+];
