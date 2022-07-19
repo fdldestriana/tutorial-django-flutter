@@ -1,7 +1,7 @@
 import 'package:ecommerce/constant.dart';
 import 'package:ecommerce/ui/pages/bag_page/bag_page.dart';
 import 'package:ecommerce/ui/pages/favorites_page/favorites_page.dart';
-import 'package:ecommerce/ui/pages/main_page/main_page.dart';
+import 'package:ecommerce/ui/pages/home_page/home_page.dart';
 import 'package:ecommerce/ui/pages/profile_page/profile_page.dart';
 import 'package:ecommerce/ui/pages/shop_page/shop_page.dart';
 import 'package:flutter/material.dart';
@@ -39,15 +39,15 @@ class MyApp extends StatelessWidget {
           // to solve the problem
           primarySwatch: MaterialColor(0xFFDB3022, MainColor.color),
         ),
-        home: const MainPage(),
-        initialRoute: MainPage.routeName,
+        home: const HomePage(),
+        initialRoute: HomePage.routeName,
         routes: {
-          BagPage.routeName: (context) => const BagPage(),
-          FavoritesPage.routeName: (context) => const FavoritesPage(),
-          MainPage.routeName: (context) => const MainPage(),
-          ProductDetailPage.routeName: (context) => const ProductDetailPage(),
-          ProfilePage.routeName: (context) => const ProfilePage(),
-          ShopPage.routeName: ((context) => const ShopPage())
+          BagPage.routeName: (_) => const BagPage(),
+          FavoritesPage.routeName: (_) => const FavoritesPage(),
+          HomePage.routeName: (_) => const HomePage(),
+          ProductDetailPage.routeName: (_) => const ProductDetailPage(),
+          ProfilePage.routeName: (_) => const ProfilePage(),
+          ShopPage.routeName: ((_) => const ShopPage())
         },
       ),
     );

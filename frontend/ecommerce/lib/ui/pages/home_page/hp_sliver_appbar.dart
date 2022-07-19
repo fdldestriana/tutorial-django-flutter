@@ -1,9 +1,9 @@
-import 'package:ecommerce/ui/pages/main_page/mp_check_button.dart';
+import 'package:ecommerce/ui/pages/home_page/hp_check_button.dart';
 import 'package:flutter/material.dart';
 import '../../../size_config.dart';
 
-class MPSliverAppBar extends StatelessWidget {
-  const MPSliverAppBar({Key? key}) : super(key: key);
+class HPSliverAppBar extends StatelessWidget {
+  const HPSliverAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class MPSliverAppBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // const Text('Fashion\nsale'),
-            MPCheckButton(size: size)
+            HPCheckButton(size: size)
           ],
         ),
         // used to defining the padding for title, because if the
