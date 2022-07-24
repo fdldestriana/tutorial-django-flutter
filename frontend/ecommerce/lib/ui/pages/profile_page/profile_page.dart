@@ -14,7 +14,7 @@ class ProfilePage extends StatelessWidget {
       body: const Center(
         child: Text("Profile Page"),
       ),
-      bottomNavigationBar: const BottomNavigationBarCustom(),
+      bottomNavigationBar: BottomNavigationBarCustom(),
     );
   }
 }

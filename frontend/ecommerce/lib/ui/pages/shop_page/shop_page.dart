@@ -14,7 +14,7 @@ class ShopPage extends StatelessWidget {
       body: const Center(
         child: Text("Shop Page"),
       ),
-      bottomNavigationBar: const BottomNavigationBarCustom(),
+      bottomNavigationBar: BottomNavigationBarCustom(),
     );
   }
 }

@@ -14,7 +14,7 @@ class BagPage extends StatelessWidget {
       body: const Center(
         child: Text("Bag Page"),
       ),
-      bottomNavigationBar: const BottomNavigationBarCustom(),
+      bottomNavigationBar: BottomNavigationBarCustom(),
     );
   }
 }

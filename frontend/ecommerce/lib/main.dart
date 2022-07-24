@@ -1,4 +1,5 @@
 import 'package:ecommerce/constant.dart';
+import 'package:ecommerce/core/providers/current_index_provider.dart';
 import 'package:ecommerce/ui/pages/bag_page/bag_page.dart';
 import 'package:ecommerce/ui/pages/favorites_page/favorites_page.dart';
 import 'package:ecommerce/ui/pages/home_page/home_page.dart';
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<WishlistListProvider>(
           create: ((context) => WishlistListProvider()),
-        )
+        ),
+        ChangeNotifierProvider(create: ((context) => CurrentIndex()))
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

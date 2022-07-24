@@ -45,7 +45,7 @@ class FavoritesPage extends StatelessWidget {
         }
         return CustomScrollView(slivers: [sliverList]);
       }),
-      bottomNavigationBar: const BottomNavigationBarCustom(),
+      bottomNavigationBar: BottomNavigationBarCustom(),
     );
   }
 }
