@@ -28,25 +28,23 @@ class BottomNavigationBarCustom extends StatelessWidget {
           backgroundColor: const Color(0xFFFFFFFF),
           items: bottomNavigationBarItem,
           currentIndex: currentIndex,
-          onTap: (index) {
-            provider.setCurrentIndex(index);
+          onTap: (currentIndex) {
+            provider.setCurrentIndex(currentIndex);
             switch (currentIndex) {
               case 0:
-                Navigator.of(context).pushReplacementNamed(HomePage.routeName);
+                Navigator.of(context).popAndPushNamed(HomePage.routeName);
                 break;
               case 1:
-                Navigator.of(context).pushReplacementNamed(ShopPage.routeName);
+                Navigator.of(context).popAndPushNamed(ShopPage.routeName);
                 break;
               case 2:
-                Navigator.of(context).pushReplacementNamed(BagPage.routeName);
+                Navigator.of(context).popAndPushNamed(BagPage.routeName);
                 break;
               case 3:
-                Navigator.of(context)
-                    .pushReplacementNamed(FavoritesPage.routeName);
+                Navigator.of(context).popAndPushNamed(FavoritesPage.routeName);
                 break;
               case 4:
-                Navigator.of(context)
-                    .pushReplacementNamed(ProfilePage.routeName);
+                Navigator.of(context).popAndPushNamed(ProfilePage.routeName);
                 break;
             }
           },
