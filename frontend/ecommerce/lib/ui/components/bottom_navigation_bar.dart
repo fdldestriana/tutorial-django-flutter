@@ -9,10 +9,7 @@ import 'package:provider/provider.dart';
 import '../pages/favorites_page/favorites_page.dart';
 
 class BottomNavigationBarCustom extends StatelessWidget {
-  BottomNavigationBarCustom({Key? key}) : super(key: key);
-
-  // importing the list of bottomTab from constant.dart
-  final List<String> bottomTabItem = bottomTab;
+  const BottomNavigationBarCustom({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

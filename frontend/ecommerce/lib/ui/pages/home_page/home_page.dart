@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
     size.init(context);
     return Scaffold(
       body: HPBody(size: size),
-      bottomNavigationBar: BottomNavigationBarCustom(),
+      bottomNavigationBar: const BottomNavigationBarCustom(),
     );
   }
 }
