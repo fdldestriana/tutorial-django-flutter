@@ -26,10 +26,11 @@ class _FavouriteButtonState extends State<FavouriteButton> {
 
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
-            fixedSize:
-                Size(size.getProportionWidth(36), size.getProportionHeight(36)),
-            primary: const Color(0xFFFFFFFF),
-            shape: const CircleBorder()),
+          shape: const CircleBorder(),
+          primary: const Color(0xFFFFFFFF),
+          fixedSize:
+              Size(size.getProportionWidth(36), size.getProportionHeight(36)),
+        ),
         onPressed: () {
           setState(() {
             isLove = !isLove;

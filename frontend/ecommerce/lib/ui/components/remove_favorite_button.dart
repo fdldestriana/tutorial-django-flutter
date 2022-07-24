@@ -19,9 +19,10 @@ class RemoveFavoriteButton extends StatelessWidget {
 
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
+        shape: const CircleBorder(),
+        primary: Colors.white70,
         fixedSize:
-            Size(size.getProportionWidth(36), size.getProportionHeight(36)),
-        primary: const Color(0xFFFFFFFF),
+            Size(size.getProportionWidth(26), size.getProportionHeight(26)),
       ),
       onPressed: () {
         wishlistProvider.removeFromWishlist(productProvider);
