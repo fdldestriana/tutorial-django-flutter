@@ -12,7 +12,7 @@ class WishlistListProvider with ChangeNotifier {
   }
 
   void removeFromWishlist(ProductProvider product) {
-    _wishlistList.removeAt(product.id!);
+    _wishlistList.remove(product);
     notifyListeners();
   }
 }

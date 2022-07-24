@@ -33,16 +33,11 @@ class _FavouriteButtonState extends State<FavouriteButton> {
         onPressed: () {
           setState(() {
             isLove = !isLove;
-          });
-
-          switch (isLove) {
-            case true:
+            // doing validation that we are not gonna add item twice
+            if (!wishlist.contains(widget.productProvider)) {
               wishlist.add(widget.productProvider);
-              break;
-            case false:
-              wishlist.remove(widget.productProvider);
-              break;
-          }
+            }
+          });
         },
         child: (wishlist.contains(widget.productProvider))
             ? const ImageIcon(

@@ -13,7 +13,7 @@ class BottomNavigationBarCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CurrentIndex provider = Provider.of<CurrentIndex>(context, listen: true);
+    CurrentIndex provider = Provider.of<CurrentIndex>(context);
     int currentIndex = provider.currentIndex;
 
     return ClipRRect(

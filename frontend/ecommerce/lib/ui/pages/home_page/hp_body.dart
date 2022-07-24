@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../size_config.dart';
+import '../../components/favourite_button.dart';
 
 // ignore: must_be_immutable
 class HPBody extends StatelessWidget {
@@ -40,11 +41,17 @@ class HPBody extends StatelessWidget {
               childAspectRatio: 1.75 / 2,
               crossAxisCount: 2),
           delegate: SliverChildBuilderDelegate(((context, index) {
-            return ProductCart(
-              productProvider: data[index],
-              widthValue: 164,
-              heightValue: 260,
-            );
+            return Stack(alignment: AlignmentDirectional.bottomEnd, children: [
+              ProductCart(
+                productProvider: data[index],
+                widthValue: 164,
+                heightValue: 260,
+              ),
+              UnconstrainedBox(
+                  child: FavouriteButton(
+                productProvider: data[index],
+              )),
+            ]);
           }), childCount: data.length),
         );
       } else {

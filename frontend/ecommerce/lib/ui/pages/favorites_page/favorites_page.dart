@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/providers/whishlist_list_provider.dart';
+import 'package:ecommerce/ui/components/remove_favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/core/providers/product_provider.dart';
 import 'package:ecommerce/ui/components/product_cart.dart';
@@ -31,11 +32,19 @@ class FavoritesPage extends StatelessWidget {
                 childAspectRatio: 1.75 / 2,
                 crossAxisCount: 2),
             delegate: SliverChildBuilderDelegate(((context, index) {
-              return ProductCart(
-                productProvider: data[index],
-                widthValue: 164,
-                heightValue: 260,
-              );
+              return Stack(
+                  alignment: AlignmentDirectional.bottomEnd,
+                  children: [
+                    ProductCart(
+                      productProvider: data[index],
+                      widthValue: 164,
+                      heightValue: 260,
+                    ),
+                    UnconstrainedBox(
+                        child: RemoveFavoriteButton(
+                      productProvider: data[index],
+                    )),
+                  ]);
             }), childCount: data.length),
           );
         } else {
